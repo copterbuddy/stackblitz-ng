@@ -2,6 +2,7 @@ import { ApplicationConfig, Component } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { RouterOutlet, Routes, provideRouter } from '@angular/router';
 import { HomeComponent } from './app/home/home.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,10 @@ export const routes: Routes = [
 ];
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes)],
+  providers: [
+    provideRouter(routes),
+    provideHttpClient()
+  ],
 };
 
 bootstrapApplication(App, appConfig);
